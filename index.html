@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+		<title>Downstream</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+
+    <header>
+        <div id="logo">
+            <img id="logo" src="images/logo/firestarter.png" alt="Firestarter Logo">
+        </div>
+        <a id="titleLink" href="https://www.facebook.com/FirestarterBoardGames/">Created by Firestarter games.</a>
+    </header>
+	
+	<section id="app">
+        <div id="start" v-bind:style="{ display: start }">
+            <img src="images/logo/logo.png" alt="Firestarter Logo" style="marginTop: 20px">
+            <button v-on:click="startDisplay();">Start Game</button>
+            <p id="startText">Scroll down to read the rules.</p>
+        </div>
+
+        <div id="secretCardContainerP1" v-bind:style="{ display: secrertCardP1 }">
+            <img v-bind:src="selectedSecretCards[0].img" id="secretCardP1" v-on:click="displayP1();">
+            <button id="secretButtonP1" v-on:click="hide();">Back</button>
+        </div>
+        <div id="secretCardContainerP2" v-bind:style="{ display: secrertCardP2 }">
+            <img v-bind:src="selectedSecretCards[1].img" id="secretCardP2" v-on:click="displayP2();">
+            <button id="secretButtonP2" v-on:click="hide();">Back</button>
+        </div>
+        <div id="sharedDisplayContainer" v-bind:style="{ display: sharedCardDisplay }">
+            <img id="sharedCard" src="images/riverObjectiveCards/1.png" class="sharedObjectiveCard">
+            <img id="sharedCard" src="images/riverObjectiveCards/3.png" class="sharedObjectiveCard">
+            <button id="sharedButton" v-on:click="hide();">Back</button>
+        </div>
+        <div id="game-container" v-bind:style="{ display: boardDisplay }">
+            <div id="player">
+                <div id="playerOne">
+                    <img src="images/playerCards/1.png" alt="Player one icon card." class="playerCard" v-bind:Style="{ borderStyle: 'solid', borderColor: borderColorP1, borderWidth: borderWidthP1 }">
+                    <img v-bind:src="selectedSecretCards[0].img" alt="Player one secret card." class="playerCard" v-on:click="displayP1();">
+                </div>
+            </div>
+            <div id="board">
+                <div id="deckSection">
+                    <button id="flipButton" v-on:click="flip();">Flip Card</button>
+                    <div id="deckContainer">
+                        <p id="deckTitle">River Cards</p>
+                        <img 
+                            v-bind:src="shuffledCards[cardNumber].img" 
+                            class="deckCard" 
+                            v-on:click="select();" 
+                            v-bind:style="{ transform: 'rotate(' + this.shuffledCards[cardNumber].rotation + 'deg)', border: '3px solid ' + border }"
+                            v-bind:alt="'River card with' + this.shuffledCards[cardNumber].ttop + 'terrain and' + this.shuffledCards[cardNumber].stop + 'on top and' + this.shuffledCards[cardNumber].tbottom + 'terrain and ' + this.shuffledCards[cardNumber].sbottom + 'on the bottom.'"
+                        >
+                        <button id="playButton" v-on:click="playCard();">Play Card</button>
+                    </div>
+                </div>
+                <div id="boardCards"  alt="River deck.">
+                    <img v-bind:src="selectedRiverSourceCard[0].img" alt="River source card" id="riverSourceCard">
+                    <div v-on:click="playCard();" v-for="part in playedCards" alt="River deck.">
+                        <img 
+                            v-bind:src="part.img" 
+                            class="riverCard" 
+                            v-bind:style="{ marginTop:part.height+'px', transform: 'scaleX(' + part.reflect + ')' + 'rotate(' + part.rotation + 'deg)' }"
+                            v-bind:alt="'River card with' + part.ttop + 'terrain and' + part.stop + 'on top and' + part.tbottom + 'terrain and ' + part.sbottom + 'on the bottom.'"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div id="player">
+                <div id="playerTwo">
+                    <img src="images/playerCards/2.png" alt="Player two icon card." class="playerCard" v-bind:Style="{ borderStyle: 'solid', borderColor: borderColorP2, borderWidth: borderWidthP2 }">
+                    <img v-bind:src="selectedSecretCards[1].img" alt="Player two secret card." class="playerCard" v-on:click="displayP2();">
+                </div>
+            </div>
+            <h2 id="sharedTitle">Shared Cards</h2>
+            <div id="sharedSection">
+                <!-- <img v-bind:src="selectedFeatureCards[0].img" class="sharedCard">
+                <img v-bind:src="selectedFeatureCards[1].img" class="sharedCard">
+                <img v-bind:src="selectedFeatureCards[2].img" class="sharedCard">
+                <img v-bind:src="selectedFeatureCards[3].img" class="sharedCard"> -->
+
+                <img src="images/riverObjectiveCards/1.png" alt="Shared card one." class="sharedObjectiveCard" v-on:click="displayShared();">
+                <!-- <img src="images/riverObjectiveCards/2.png" class="sharedObjectiveCard"> -->
+                <img src="images/riverObjectiveCards/3.png" alt="Shared card two."class="sharedObjectiveCard" v-on:click="displayShared();">
+            </div>
+        </div>
+
+        <div id="gameResults" v-bind:style="{ display: resultsDisplay }">
+            <div id="resultsContainer">
+                <h2>{{winner}}</h2>
+                <p>{{scorePlayerOne}}</p>
+                <p>{{scorePlayerTwo}}</p>
+                <button v-on:click="restart();">Restart</button>
+            </div>
+        </div>
+
+	</section>
+
+    <section id="rules">
+        <div id="rulesContainer">
+            <h2>Downstream Rules</h2>
+            <p>For more information, <a href="https://www.facebook.com/FirestarterBoardGames/">read the official rules here</a>.</p>
+            <h3>GOAL</h3>
+            <p>Two players will take turns adding cards to a river environment in an attempt to create the most scenic shore on their side of the river.</p>
+            <p>Cards can be used to extend the flow of water further downstream or to contribute to the land on either side, enriching the area.</p>
+            <p>Games are played with a varying set of objectives which specify what features players should look to include along their river banks and how they should be placed.</p>
+            <b>The player who can achieve these objectives most successfully on their side of the river, wins.</b>
+            <h3>GAMEPLAY</h3>
+            <h4>STEP ONE: TAKE A CARD</h4>
+            <p>Click the river card deck to pick a card from the top of the deck.</p>
+            <p>Each players turn is indicated by a blue border around their corresponding card.</p>
+            <img src="images/logo/Picture1.png" alt="Take a card image.">
+            <h4>STEP TWO: PLAY CARDS</h4>
+            <p>Click the board to place your card at the end of the river.</p>
+            <img src="images/logo/Picture2.png" height="100px" alt="Place a card image.">
+            <h3>GAME END</h3>
+            <p>The game ends when all cards have been played.</p>
+            <p>When both players have no cards to play, the game ends and scoring commences.</p>
+            <p>Scores are calculated by counting the points earned by each player.</p>
+        </div>
+    </section>
+
+    <script src="scripts/script.js"></script>
+	</body>
+</html>

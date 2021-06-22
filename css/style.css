@@ -1,0 +1,415 @@
+:root {
+--green: #2e371e;
+--gray: #ccd3e1;
+--yellow: #ef9720;
+--blue: #4eb8ac;
+
+--red: #af4022;
+--brightGreen: #1e5332;
+--brown: #452a21;
+
+--darkBlue: #51736c;
+--darkGray: #3f3e3e;
+
+--white: #ffffff;
+--none: #ffffff00;
+}
+
+@font-face {
+font-family: raleway;
+src: url(../fonts/Raleway/Raleway-VariableFont_wght.ttf);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+    background-color: var(--white);
+
+    font-family: raleway;
+}
+
+/* h1 {
+    color: var(--blue);
+    width: 200px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+} */
+#logo {
+    margin: 0 auto;
+    width: 100%;
+    border:L 1px solid black;
+    text-align: center;
+}
+#logo img {
+    width: 150px;
+    margin: 10px;
+}
+
+#titleLink {
+    width: 100px;
+    margin: auto;
+    text-decoration: none;
+    color: var(--black);
+}
+#titleLink:hover {
+    color: var(--blue);
+}
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+#app {
+
+    max-height: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 0;
+
+    background-color: var(--white);
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    border-radius: 5px;
+
+    padding-top: 60px;
+
+    margin-bottom: 50px;
+
+    background-image: url("../images/background/paul-earle-xJ2tjuUHD9M-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+
+    background-position: bottom 0px;
+}
+
+#start{
+    width: 400px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: var(--gray);
+
+    margin-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+#startTitle{
+    padding-top: 50px;
+    color: var(--darkGray);
+}
+#start button {
+    margin-top: 20px;
+
+    color: var(--darkBlue);
+    font-size: 24px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    font-family: raleway;
+}
+#start button:hover {
+    cursor: pointer;
+    color: var(--darkgray);
+    
+    background-color: white;
+    border: 1px solid var(--darkBlue);
+    border-radius: 5px;
+}
+#startText {
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+
+#secretCardContainerP1{
+    /* border: 1px solid black; */
+    width: 400px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: var(--gray);
+
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+#secretCardP1{
+    transform: rotate(-90deg);
+    margin: 0 auto;
+    margin-left: 125px;
+}
+#secretButtonP1{
+    color: var(--blue);
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#secretCardContainerP2{
+    /* border: 1px solid black; */
+    width: 400px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: var(--gray);
+
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+#secretCardP2{
+    transform: rotate(-90deg);
+    margin: 0 auto;
+    margin-left: 125px;
+}
+#secretButtonP2{
+    color: var(--blue);
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#sharedDisplayContainer{
+    /* border: 1px solid black; */
+    width: 400px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: var(--gray);
+
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+#sharedCard{
+    margin: 0 auto;
+    margin-left: 125px;
+}
+#sharedButton{
+    color: var(--blue);
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#game-container{
+    display: block;
+    margin-bottom: 50px;
+}
+
+#player {
+    height: 100px;
+    background-color: var(--none);
+    margin: auto;
+
+    margin-left: 50px;
+    margin-right: 50px;
+
+    display: inline-flex;
+    min-width: 1000px;
+
+    margin-top: 5px;
+}
+.playerCard {
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#playerOne {
+}
+
+#playerTwo {
+}
+
+.playerTitle {
+    height: 90%;
+    width: 60px;
+    float: left;
+    background-color: var(--white);
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: var(--darkGray);
+}
+
+#sharedSection {
+    height: 100px;
+    background-color: var(--none);
+    margin: auto;
+
+    margin-left: 50px;
+    margin-right: 50px;
+
+    display: inline-flex;
+    width: 500px;
+}
+#sharedTitle{
+    width: 500px;
+    margin-left: 50px;
+    color: var(--darkBlue);
+    margin-top: 50px;
+}
+.sharedCard {
+    height: 100%;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.sharedObjectiveCard {
+    height: 100%;
+    border-radius: 5px;
+    margin-right: 5px;
+
+    transform: rotate(-90deg);
+    margin-left: 50px;
+}
+
+#board {
+    height:300px;
+    background-color: var(--none);
+
+    margin-left: 50px;
+    margin-right: 50px;
+
+    display: inline-flex;
+
+    min-width: 50%;
+}
+#deckSection {
+    height: 100%;
+    width: 150px;
+}
+#deckContainer {
+    height: 170px;
+    width: 120px;
+
+    margin-left: 15px;
+
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.deckCard {
+    height: 150px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 17px;
+}
+#deckTitle {
+    font-size: 12px;
+    margin-top: -20px;
+    margin-left: -130px;
+    color: black;
+    transform: rotate(-90deg);
+}
+
+#boardCards {
+    /* background-color: grey;
+    border: 1px solid black; */
+    display: inline-flex;
+}
+#riverSourceCard {
+    height: 150px;
+    margin-top: 70px;
+    border-radius: 5px;
+
+    margin-left: 50px;
+    margin-right: 5px;
+}
+.riverCard {
+    height: 150px;
+    border-radius: 5px;
+    margin-left: -5px;
+    margin-right: 5px;
+}
+#flipButton {
+    background-color: var(--white);
+    border: 1px solid var(--darkGray);
+    color: var(--darkGray);
+    padding: 5px;
+    border-radius: 5px;
+
+    margin-left: 45px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+
+    font-family: raleway;
+}
+#flipButton:hover {
+    cursor: pointer;
+    color: var(--blue);
+    border-color: var(--blue);
+}
+#playButton {
+    background-color: var(--white);
+    border: 1px solid var(--darkGray);
+    color: var(--darkGray);
+    padding: 5px;
+    border-radius: 5px;
+
+    margin-left: 25px;
+    margin-top: 12px;
+
+    font-family: raleway;
+}
+#playButton:hover {
+    cursor: pointer;
+    color: var(--blue);
+    border-color: var(--blue);
+}
+
+#gameResults {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+#resultsContainer {
+    max-width: 500px;
+    border: 1px solid var(--blue);
+    margin: auto;
+    border-radius: 5px;
+}
+#resultsContainer h2{
+    color: var(--blue);
+}
+#resultsContainer button {
+    color: var(--darkBlue);
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+}
+#resultsContainer button:hover {
+    cursor: pointer;
+    color: var(--darkgray);
+    
+    background-color: white;
+    border: 1px solid var(--darkBlue);
+    border-radius: 5px;
+}
+#rules{
+    width: 90%;
+    background-color: var(--gray);;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 100px;
+
+    max-height: 500px;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#rulesContainer {
+    padding: 10px;
+}
+a {
+    color: var(--darkBlue);
+}
