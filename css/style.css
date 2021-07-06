@@ -15,14 +15,6 @@
 --none: #ffffff00;
 }
 
-
-
-/* @font-face {
-    font-family: "raleway";
-    src: 
-    url(../fonts/Raleway/raleway-variablefont_wght-webfont.ttf);
-} */
-
 body {
     margin: 0%;
     background-color: var(--white);
