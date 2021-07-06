@@ -16,8 +16,13 @@
 }
 
 @font-face {
-font-family: raleway;
-src: url(../fonts/Raleway/Raleway-VariableFont_wght.ttf);
+    font-family: "raleway";
+    src: url(../fonts/Raleway/raleway-variablefont_wght-webfont.eot);
+    src: 
+    url(../fonts/Raleway/raleway-variablefont_wght-webfont.svg),
+    url(../fonts/Raleway/raleway-variablefont_wght-webfont.ttf),
+    url(../fonts/Raleway/raleway-variablefont_wght-webfont.woff),
+    url(../fonts/Raleway/raleway-variablefont_wght-webfont.woff2);
 }
 
 body {
@@ -103,7 +108,7 @@ header {
 #start button {
     margin-top: 20px;
 
-    color: var(--darkBlue);
+    color: var(--black);
     font-size: 24px;
     padding: 10px;
     background-color: white;
@@ -328,7 +333,7 @@ header {
 #flipButton {
     background-color: var(--white);
     border: 1px solid var(--darkGray);
-    color: var(--darkGray);
+    color: black;
     padding: 5px;
     border-radius: 5px;
 
@@ -346,7 +351,7 @@ header {
 #playButton {
     background-color: var(--white);
     border: 1px solid var(--darkGray);
-    color: var(--darkGray);
+    color: var(--black);
     padding: 5px;
     border-radius: 5px;
 
